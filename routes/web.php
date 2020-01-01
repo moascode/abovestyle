@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'OrdersController@index');
+
+Auth::routes();
+
+Route::get('/order', 'OrdersController@add');
+Route::post('/order', 'OrdersController@create');
+
+Route::get('/order/{order}', 'OrdersController@edit');
+Route::post('/order/{order}', 'OrdersController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
