@@ -1,6 +1,5 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/js/order.js"></script>
 <!-- Scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ asset('js/order.js') }}"></script>
 
 <!-- //laravel's default navbar behavior -->
