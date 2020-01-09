@@ -1,5 +1,5 @@
 <!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/order.js') }}"></script>
 
 @extends('layouts.app')
@@ -135,8 +135,22 @@
 
         <div class="row">
             <div class="card w-50">
-                <h4 class="card-header">Credit</h4>
+                <h4 class="card-header">Debit/Credit</h4>
                 <div class="card-body">
+                    <div class="form-group row">
+                        <label for="inputPcost" class="col-sm-4 col-form-label col-form-label-lg">Product cost</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" value="120" id="inputPcost" aria-describedby="iPCostHelp">
+                            <small id="iPCostHelp" class="form-text text-muted">Payment shown in BDT (Bangladeshi Taka).</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputWcost" class="col-sm-4 col-form-label col-form-label-lg">Weight charge cost</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" value="120" id="inputWcost" aria-describedby="iWCostHelp">
+                            <small id="iWCostHelp" class="form-text text-muted">*Delivery cost is included in COD credit. <br>Payment shown in BDT (Bangladeshi Taka).</small>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="inputAdvPay" class="col-sm-4 col-form-label col-form-label-lg">Advance Payment</label>
                         <div class="col-sm-7">
