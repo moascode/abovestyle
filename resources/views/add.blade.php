@@ -23,7 +23,7 @@
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-4 col-form-label col-form-label-lg">Name</label>
                         <div class="col-sm-7">
-                            <input name="description" type="text" class="form-control" id="inputName" value="Above Style" placeholder="Above Style">
+                            <input name="name" type="text" class="form-control" id="inputName" value="Above Style" placeholder="Above Style">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -23,7 +23,20 @@ class OrdersController extends Controller
     public function create(Request $request)
     {
         $order = new Order();
-        $order->description = $request->description;
+        $order->name = $request->name;
+        $order->phone_number = ' ';
+        $order->email = ' ';
+        $order->address = ' ';
+        $order->category = ' ';
+        $order->product_name = ' ';
+        $order->quantity = 3;
+        $order->product_price = 0;
+        $order->weight_charge = 0;
+        $order->delivery_charge = 0;
+        $order->product_cost = 0;
+        $order->weight_cost = 0;
+        $order->advance_pay = 0;
+        $order->cod_credit = 0;
         $order->user_id = Auth::id();
         $order->save();
         return redirect('/');
@@ -33,6 +46,7 @@ class OrdersController extends Controller
     {
         if(Auth::check() && Auth::user()->id == $order->user_id)
         {
+            $order->name = $order->name . ' hello';
             return view('edit', compact('order'));
         }
         else
@@ -50,7 +64,7 @@ class OrdersController extends Controller
         }
         else
         {
-            $order->description = $request->description;
+            $order->name = $request->name;
             $order->save();
             return redirect('/');
         }

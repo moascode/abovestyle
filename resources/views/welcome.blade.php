@@ -18,7 +18,7 @@
                 @foreach($user->orders as $order)
                     <tr>
                         <td>
-                            {{$order->description}}
+                            {{$order->name}}
                         </td>
                         <td>
                             
