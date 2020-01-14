@@ -23,16 +23,17 @@ class OrdersController extends Controller
     public function create(Request $request)
     {
         $order = new Order();
+        $order->shipment_id = ' ';
         $order->name = $request->name;
-        $order->phone_number = ' ';
-        $order->email = ' ';
-        $order->address = ' ';
-        $order->category = ' ';
-        $order->product_name = ' ';
-        $order->quantity = 3;
-        $order->product_price = 0;
-        $order->weight_charge = 0;
-        $order->delivery_charge = 0;
+        $order->phone_number = $request->phone_number;
+        $order->email = $request->email;
+        $order->address = $request->address;
+        $order->category = $request->category;
+        $order->product_name = $request->product_name;
+        $order->quantity = $request->quantity;
+        $order->product_price = $request->product_price;
+        $order->weight_charge = $request->weight_charge;
+        $order->delivery_charge = $request->delivery_charge;
         $order->product_cost = 0;
         $order->weight_cost = 0;
         $order->advance_pay = 0;

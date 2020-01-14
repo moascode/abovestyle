@@ -29,19 +29,19 @@
                     <div class="form-group row">
                         <label for="inputPhone" class="col-sm-4 col-form-label col-form-label-lg">Phone Number</label>
                         <div class="col-sm-7">
-                            <input type="tel" class="form-control" id="inputPhone" placeholder="01111-222222">
+                            <input name="phone_number" type="tel" class="form-control" id="inputPhone" placeholder="01111-222222">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputEmail" class="col-sm-4 col-form-label col-form-label-lg">Email</label>
                         <div class="col-sm-7">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="abovestyle.bd@gmail.com">
+                            <input name="email" type="email" class="form-control" id="inputEmail">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputAddress" class="col-sm-4 col-form-label col-form-label-lg">Address</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="House no 11, Floor no 2, Road no 333, Gulshan 2">
+                            <input name="address" type="text" class="form-control" id="inputAddress" placeholder="House no 11, Floor no 2, Road no 333, Gulshan 2">
                         </div>
                     </div>
                 </div>
@@ -51,9 +51,29 @@
                 <h4 class="card-header">Product information</h4>
                 <div class="card-body">
                     <div class="form-group row">
+                        <label for="inputShipmentId" class="col-sm-4 col-form-label col-form-label-lg">Shipment ID</label>
+                        <div class="col-sm-7">
+                            <select name="shipment_id" class="form-control" id="inputCategory">
+                                <option value="" disabled selected>Select Shipment ID</option>
+                                <option value="1">JAN2020</option>
+                                <option value="2">FEB2020</option>
+                                <option value="3">MAR2020</option>
+                                <option value="4">APR2020</option>
+                                <option value="4">MAY2020</option>
+                                <option value="4">JUN2020</option>
+                                <option value="4">JUL2020</option>
+                                <option value="4">AUG2020</option>
+                                <option value="4">SEP2020</option>
+                                <option value="4">OCT2020</option>
+                                <option value="4">NOV2020</option>
+                                <option value="4">DEC2020</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="inputCategory" class="col-sm-4 col-form-label col-form-label-lg">Category</label>
                         <div class="col-sm-7">
-                            <select class="form-control" id="inputCategory">
+                            <select name="category" class="form-control" id="inputCategory">
                                 <option value="" disabled selected>Select Category</option>
                                 <option value="1">Hijab</option>
                                 <option value="2">Cosmetics</option>
@@ -65,19 +85,19 @@
                     <div class="form-group row">
                         <label for="inputProductName" class="col-sm-4 col-form-label col-form-label-lg">Product name</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="inputProductName" placeholder="Chiffon Hijab">
+                            <input name="product_name" type="text" class="form-control" id="inputProductName" placeholder="Chiffon Hijab">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputQuantity" class="col-sm-4 col-form-label col-form-label-lg">Quantity</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" value="3" id="inputQuantity">
+                            <input name="quantity" class="form-control" type="number" value="3" id="inputQuantity">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputPrice" class="col-sm-4 col-form-label col-form-label-lg">Price</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" value="350" id="inputPrice" aria-describedby="priceHelp">
+                            <input name="product_price" class="form-control" type="number" value="350" id="inputPrice" aria-describedby="priceHelp">
                             <small id="priceHelp" class="form-text text-muted">Price shown in BDT (Bangladeshi Taka).</small>
                         </div>
                     </div>
@@ -96,14 +116,14 @@
                     <div class="form-group row">
                         <label for="inputWeightCharge" class="col-sm-4 col-form-label col-form-label-lg">Weight Charge</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" value="200" id="inputWeightCharge" aria-describedby="wChargeHelp">
+                            <input name="weight_charge" class="form-control" type="number" value="200" id="inputWeightCharge" aria-describedby="wChargeHelp">
                             <small id="wChargeHelp" class="form-text text-muted">Charge shown in BDT (Bangladeshi Taka).</small>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputDeliveryCharge" class="col-sm-4 col-form-label col-form-label-lg">Delivery Charge</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" value="70" id="inputDeliveryCharge" aria-describedby="dChargeHelp">
+                            <input name="delivery_charge" class="form-control" type="number" value="70" id="inputDeliveryCharge" aria-describedby="dChargeHelp">
                             <small id="dChargeHelp" class="form-text text-muted">Charge shown in BDT (Bangladeshi Taka).</small>
                         </div>
                     </div>
