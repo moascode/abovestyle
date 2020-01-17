@@ -11,14 +11,27 @@
                 <a href="/order" class="btn btn-primary">Add new Order</a>
                 <table class="table mt-4">
                     <thead><tr>
-                        <th colspan="2">Orders</th>
+                        <th >Order No</th>
+                        <th >Name</th>
+                        <th >Amount</th>
+                        <th >Due</th>
+                        <th ></th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($user->orders as $order)
                     <tr>
                         <td>
+                            {{$order->order_id}}
+                        </td>
+                        <td>
                             {{$order->name}}
+                        </td>
+                        <td>
+                            BDT {{$order->total_amount}}
+                        </td>
+                        <td>
+                            BDT {{$order->due_amount}}
                         </td>
                         <td>
                             

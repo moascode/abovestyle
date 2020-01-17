@@ -12,6 +12,9 @@ $(document).ready(function () {
         additional_charge = parseInt(weightCharge) + parseInt(deliveryCharge);
         total_price = product_price + additional_charge;
 
+        var i = 0;
+        console.log(total_price);
+
         /*display the result*/
         $("#displayPrice").text("BDT " + product_price);
         $("#displayCharge").text("BDT " + additional_charge);
@@ -28,4 +31,7 @@ $(document).ready(function () {
     $('#inputCategory').change(calculateAmount).change(changePrice);
     $('#inputQuantity').keyup(calculateAmount).change(calculateAmount);
     $('#inputPrice').keyup(calculateAmount).change(calculateAmount);
+
+    
+
 });

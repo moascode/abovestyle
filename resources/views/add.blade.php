@@ -53,20 +53,20 @@
                     <div class="form-group row">
                         <label for="inputShipmentId" class="col-sm-4 col-form-label col-form-label-lg">Shipment ID</label>
                         <div class="col-sm-7">
-                            <select name="shipment_id" class="form-control" id="inputCategory">
+                            <select name="shipment_id" class="form-control" id="inputShipmentId">
                                 <option value="" disabled selected>Select Shipment ID</option>
-                                <option value="1">JAN2020</option>
-                                <option value="2">FEB2020</option>
-                                <option value="3">MAR2020</option>
-                                <option value="4">APR2020</option>
-                                <option value="4">MAY2020</option>
-                                <option value="4">JUN2020</option>
-                                <option value="4">JUL2020</option>
-                                <option value="4">AUG2020</option>
-                                <option value="4">SEP2020</option>
-                                <option value="4">OCT2020</option>
-                                <option value="4">NOV2020</option>
-                                <option value="4">DEC2020</option>
+                                <option value="JAN2020">JAN2020</option>
+                                <option value="FEB2020">FEB2020</option>
+                                <option value="MAR2020">MAR2020</option>
+                                <option value="APR2020">APR2020</option>
+                                <option value="MAY2020">MAY2020</option>
+                                <option value="JUN2020">JUN2020</option>
+                                <option value="JUL2020">JUL2020</option>
+                                <option value="AUG2020">AUG2020</option>
+                                <option value="SEP2020">SEP2020</option>
+                                <option value="OCT2020">OCT2020</option>
+                                <option value="NOV2020">NOV2020</option>
+                                <option value="DEC2020">DEC2020</option>
                             </select>
                         </div>
                     </div>
