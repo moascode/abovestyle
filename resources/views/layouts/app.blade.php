@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    @stack('styles')
+
 </head>
 <body>
     <div id="app">
@@ -75,6 +79,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Custom scripts -->
+        @stack('scripts')
+
     </div>
 </body>
 </html>

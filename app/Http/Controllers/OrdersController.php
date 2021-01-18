@@ -28,13 +28,13 @@ class OrdersController extends Controller
             }
             //Log::info(print_r( $user->orders, true));
         }
-        
+
         return view('welcome', compact('user'));
     }
 
     public function add()
     {
-        return view('add');
+        return view('orders.add-order');
     }
 
     public function create(Request $request)
