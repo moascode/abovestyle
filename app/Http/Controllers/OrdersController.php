@@ -15,7 +15,7 @@ class OrdersController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->orders->count()){
+        if($user && $user->orders->count()){
             $user->orders = $user->orders->reverse();
 
             foreach ($user->orders as $order) {
