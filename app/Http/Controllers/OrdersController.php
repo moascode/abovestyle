@@ -15,17 +15,20 @@ class OrdersController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user->orders = $user->orders->reverse();
+        if($user->orders->count()){
+            $user->orders = $user->orders->reverse();
 
-        foreach ($user->orders as $order) {
-            $product_price = $order->quantity * $order->product_price;
-            $additional_charge = $order->weight_charge + $order->delivery_charge;
-            $total_amount = $product_price +  $additional_charge;
-            $due_amount = $total_amount - $order->advance_pay;
-            $order['total_amount'] = $total_amount;
-            $order['due_amount'] = $due_amount;
+            foreach ($user->orders as $order) {
+                $product_price = $order->quantity * $order->product_price;
+                $additional_charge = $order->weight_charge + $order->delivery_charge;
+                $total_amount = $product_price +  $additional_charge;
+                $due_amount = $total_amount - $order->advance_pay;
+                $order['total_amount'] = $total_amount;
+                $order['due_amount'] = $due_amount;
+            }
+            //Log::info(print_r( $user->orders, true));
         }
-        //Log::info(print_r( $user->orders[0], true));
+        
         return view('welcome', compact('user'));
     }
 
@@ -36,10 +39,10 @@ class OrdersController extends Controller
 
     public function create(Request $request)
     {
-        $lastEntry = DB::table('orders')->last();
+        $lastEntry = 1001;//DB::table('orders')->last();
 
         $order = new Order();
-        $order->order_id = $lastEntry->order_id + 1 ;
+        $order->order_id = $lastEntry + 1 ;
         $order->shipment_id = $request->shipment_id;
         $order->name = $request->name;
         $order->phone_number = $request->phone_number;
