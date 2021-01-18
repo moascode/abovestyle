@@ -30,37 +30,53 @@ class OrdersController extends Controller
         }
 
         return view('welcome', compact('user'));
+        
     }
 
     public function add()
     {
-        return view('orders.add-order');
+        if(Auth::check()){
+            return view('orders.add-order');
+        }
+        else
+        {
+            return redirect('/');
+        }
+        
     }
 
     public function create(Request $request)
     {
-        $lastEntry = 1001;//DB::table('orders')->last();
+        if(Auth::check()){
+            $lastEntry = 1001;//DB::table('orders')->last();
 
-        $order = new Order();
-        $order->order_id = $lastEntry + 1 ;
-        $order->shipment_id = $request->shipment_id;
-        $order->name = $request->name;
-        $order->phone_number = $request->phone_number;
-        $order->email = $request->email;
-        $order->address = $request->address;
-        $order->category = $request->category;
-        $order->product_name = $request->product_name;
-        $order->quantity = $request->quantity;
-        $order->product_price = $request->product_price;
-        $order->weight_charge = $request->weight_charge;
-        $order->delivery_charge = $request->delivery_charge;
-        $order->product_cost = 0;
-        $order->weight_cost = 0;
-        $order->advance_pay = 0;
-        $order->cod_credit = 0;
-        $order->user_id = Auth::id();
-        $order->save();
-        return redirect('/');
+            $order = new Order();
+            $order->order_id = $lastEntry + 1 ;
+            $order->shipment_id = $request->shipment_id;
+            $order->name = $request->name;
+            $order->phone_number = $request->phone_number;
+            $order->email = $request->email;
+            $order->address = $request->address;
+            $order->category = $request->category;
+            $order->product_name = $request->product_name;
+            $order->quantity = $request->quantity;
+            $order->product_price = $request->product_price;
+            $order->weight_charge = $request->weight_charge;
+            $order->delivery_charge = $request->delivery_charge;
+            $order->product_cost = 0;
+            $order->weight_cost = 0;
+            $order->advance_pay = 0;
+            $order->cod_credit = 0;
+            $order->user_id = Auth::id();
+            $order->save();
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/login');
+        }
+
+        
     }
 
     public function edit(Order $order)
@@ -83,7 +99,7 @@ class OrdersController extends Controller
                 't-inc' => $total_income,
                 'n-inc' => $net_income
             ];
-            return view('edit', compact('order', 'business'));
+            return view('orders.edit-order', compact('order', 'business'));
         }
         else
         {
