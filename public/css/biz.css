@@ -1,0 +1,35 @@
+/* Modification of Biz template*/
+
+.header .nav-inner {
+    margin-right: 0px;
+}
+
+.header .img-logo {
+    margin-top: 27px;
+}
+
+.biz-btn-header {
+    margin-right: 0px !important;
+}
+
+.footer-about .logo {
+    margin-right: 30px;
+}
+
+.owl-controls{
+    display: none;
+}
+
+.hero-slider .welcome-text {
+    margin-top: 57px;
+}
+
+.hero-slider .hero-text h1 {
+    font-size: 75px;
+    line-height: 76px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.hero-slider, .hero-slider .single-slider {
+    height: 600px;
+}
