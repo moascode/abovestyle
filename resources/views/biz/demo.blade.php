@@ -16,28 +16,33 @@
             <!--Empty row-->
         </div>
         <!--Order form -->
-        <form method="POST" action="/order">
+        <form method="POST" action="/demo/end">
             <div id="smartwizard">
                 <ul class="nav">
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-1">
-                        Customer information
-                    </a>
+                        <a class="nav-link" href="#step-1">
+                            Customer Information
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-2">
-                        Product information
-                    </a>
+                        <a class="nav-link" href="#step-2">
+                            Product Information
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-3">
-                        Additional charge
-                    </a>
+                        <a class="nav-link" href="#step-3">
+                            Additional Charge
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-4">
-                        Summary
-                    </a>
+                        <a class="nav-link" href="#step-4">
+                            Summary
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step-5">
+                            Payment
+                        </a>
                     </li>
                 </ul>
             
@@ -151,6 +156,34 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label col-form-label-lg"><b>Amount</b></label>
                             <label class="col-sm-4 col-form-label col-form-label-lg" id="displayAmount"><b>BDT 0</b></label>
+                        </div>
+                    </div>
+                    <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-5">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label for="inputCard" class="col-sm-6 col-form-label col-form-label-lg">Card Number</label>
+                                <div class="col-sm-12">
+                                    <input name="card_number" type="text" class="form-control" id="inputCard" placeholder="Card Number" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="inputCVC" class="col-sm-6 col-form-label col-form-label-lg">CVC</label>
+                                <div class="col-sm-12">
+                                    <input name="card_cvc" type="text" class="form-control" id="inputCVC" placeholder="CVC">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="inputCardMonth" class="col-sm-6 col-form-label col-form-label-lg">Month</label>
+                                <div class="col-sm-12">
+                                    <input name="card_month" type="text" class="form-control" id="inputCardMonth" placeholder="Month">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="inputCardYear" class="col-sm-6 col-form-label col-form-label-lg">Year</label>
+                                <div class="col-sm-12">
+                                    <input name="card_year" type="text" class="form-control" id="inputCardYear" placeholder="Year">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

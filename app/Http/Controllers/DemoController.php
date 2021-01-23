@@ -10,4 +10,9 @@ class DemoController extends Controller
     {
         return view('biz.demo');   
     }
+
+    public function end()
+    {
+        return view('biz.demo-end');   
+    }
 }
