@@ -86,7 +86,7 @@
 								</ul>															
 								<div class="button">
 								@if (Auth::check())
-									<a href="/" class="bizwheel-btn">Dashboard</a>
+									<a href="/dashboard" class="bizwheel-btn">Dashboard</a>
 									<a href="{{ route('logout') }}" 
 										onclick="event.preventDefault();document.getElementById('logout-form').submit();"
 									class="bizwheel-btn biz-btn-header" >Logout</a>
@@ -132,22 +132,21 @@
 														<div class="menu-home-menu-container">
 															<!-- Naviagiton -->
 															<ul id="nav" class="nav main-menu menu navbar-nav">
-																<li><a href="/home">Home</a></li>
-																<li><a href="services.html">Our Services</a></li>
-																<li><a href="portfolio.html">Our Portfolio</a></li>
+																<li><a href="/">Home</a></li>
+																<li><a href="#">Our Services</a></li>
+																<li><a href="#">Our Portfolio</a></li>
 																<li class="icon-active"><a href="#">Blog</a>
 																	<ul class="sub-menu">
-																		<li><a href="blog.html">Blog Grid</a></li>
-																		<li><a href="blog-single.html">Blog Single</a></li>
+																		<li><a href="#">Blog Grid</a></li>
+																		<li><a href="#">Blog Single</a></li>
 																	</ul>
 																</li>
 																<li class="icon-active"><a href="#">Pages</a>
 																	<ul class="sub-menu">
-																		<li><a href="about.html">About Us</a></li>
-																		<li><a href="404.html">404</a></li>
+																		<li><a href="#">About Us</a></li>
 																	</ul>
 																</li>
-																<li><a href="contact.html">Contact Us</a></li>
+																<li><a href="#">Contact Us</a></li>
 															</ul>
 															<!--/ End Naviagiton -->
 														</div>

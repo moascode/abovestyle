@@ -29,7 +29,7 @@ class OrdersController extends Controller
             //Log::info(print_r( $user->orders, true));
         }
 
-        return view('welcome', compact('user'));
+        return view('orders.list-order', compact('user'));
         
     }
 
@@ -40,7 +40,7 @@ class OrdersController extends Controller
         }
         else
         {
-            return redirect('/');
+            return redirect('/login');
         }
         
     }
@@ -69,7 +69,7 @@ class OrdersController extends Controller
             $order->cod_credit = 0;
             $order->user_id = Auth::id();
             $order->save();
-            return redirect('/');
+            return redirect('/dashboard');
         }
         else
         {
@@ -103,7 +103,7 @@ class OrdersController extends Controller
         }
         else
         {
-            return redirect('/');
+            return redirect('/login');
         }
     }
 
@@ -112,7 +112,7 @@ class OrdersController extends Controller
         if(isset($_POST['delete']))
         {
             $order->delete();
-            return redirect('/');
+            return redirect('/dashboard');
         }
         else
         {
@@ -132,7 +132,7 @@ class OrdersController extends Controller
             $order->advance_pay = $request->advance_pay;
             $order->cod_credit = $request->cod_credit;
             $order->save();
-            return redirect('/');
+            return redirect('/dashboard');
         }
     }
 }

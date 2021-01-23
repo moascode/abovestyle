@@ -19,7 +19,7 @@
                                     <p>Nunc tincidunt venenatis elit. Etiam venenatis quam vel maximus bibendum Pellentesque elementum dapibus diam tristique</p>
                                 </div>
                                 <div class="button">
-                                    <a href="team.html" class="bizwheel-btn theme-2 effect">Our Leaders</a>
+                                    <a href="/demo" class="bizwheel-btn theme-2 effect">Demo</a>
                                 </div>
                             </div>
                         </div>
