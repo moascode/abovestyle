@@ -14,17 +14,22 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+/**Authentication routes*/
+Auth::routes();
+
+/**Authenticated routes */
+Route::middleware('auth')->group(function() {
+    Route::get('/dashboard', 'OrdersController@index');
+
+    Route::get('/order', 'OrdersController@add');
+    Route::post('/order', 'OrdersController@create');
+
+    Route::get('/order/{order}', 'OrdersController@edit');
+    Route::post('/order/{order}', 'OrdersController@update');
+});
+
+/**Non-authenticated routes */
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/demo', 'DemoController@index')->name('demo');
 Route::post('/demo/end', 'DemoController@end');
-
-Auth::routes();
-
-Route::get('/dashboard', 'OrdersController@index');
-
-Route::get('/order', 'OrdersController@add');
-Route::post('/order', 'OrdersController@create');
-
-Route::get('/order/{order}', 'OrdersController@edit');
-Route::post('/order/{order}', 'OrdersController@update');
 

@@ -4,6 +4,7 @@
 <!-- Custom CSS -->
 @push('styles')
 <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/stripe.css') }}" rel="stylesheet">
 @endpush
 
 <!-- //body content -->
@@ -11,6 +12,12 @@
 <main class="py-4">
     <div class="container">
         <div class="col-sm-12">
+            @if(session('message'))
+                <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">{{ session('error') }}</div>
+            @endif
         <h2>Add New Order</h2>
         <div class="form-group row">
             <!--Empty row-->
@@ -20,24 +27,29 @@
             <div id="smartwizard">
                 <ul class="nav">
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-1">
-                        Customer information
-                    </a>
+                        <a class="nav-link" href="#step-1">
+                            Customer Information
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-2">
-                        Product information
-                    </a>
+                        <a class="nav-link" href="#step-2">
+                            Product Information
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-3">
-                        Additional charge
-                    </a>
+                        <a class="nav-link" href="#step-3">
+                            Additional Charge
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step-4">
-                        Summary
-                    </a>
+                        <a class="nav-link" href="#step-4">
+                            Summary
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step-5">
+                            Payment
+                        </a>
                     </li>
                 </ul>
             
@@ -151,7 +163,28 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label col-form-label-lg"><b>Amount</b></label>
                             <label class="col-sm-4 col-form-label col-form-label-lg" id="displayAmount"><b>BDT 0</b></label>
+                            <input type="hidden" name="total_amount" id="totalAmount" value="">
+                            <input type="hidden" id="client_secret" value="{{ $intent->client_secret }}">
+                            <input type="hidden" id="stripe_key" value="{{ env('STRIPE_KEY') }}">
                         </div>
+                    </div>
+                    <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-5">
+                        <div class="form-group row"></div>
+                        <input type="hidden" name="payment_method" class="payment-method">
+                        <div class="form-group row">
+                            <div class="col-lg-3 col-md-4">
+                                <input class="StripeElement mb-3" name="card_holder_name" placeholder="Card holder name" required>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div id="card-element"></div>
+                            </div>
+                        </div>
+                        <div id="card-errors" role="alert"></div>
+                        <!-- <div class="form-group mt-3">
+                            <button type="button" class="btn btn-primary pay">
+                                Purchase
+                            </button>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -168,6 +201,8 @@
 <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- smartWizard Script -->
 <script type="application/javascript" src="{{ asset('js/jquery.smartWizard.min.js') }}" ></script>
+<!-- stripe Script -->
+<script src="https://js.stripe.com/v3/"></script>
 <!-- order Script -->
 <script type="text/javascript" src="{{ asset('js/order.js') }}"></script>
 @endpush

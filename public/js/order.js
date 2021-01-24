@@ -1,10 +1,62 @@
 $(document).ready(function () {
 
+    console.log("here");
+    let stripe = Stripe($("#stripe_key").val())
+    let elements = stripe.elements()
+    let style = {
+        base: {
+            color: '#32325d',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    }
+    let card = elements.create('card', {style: style})
+    card.mount('#card-element')
+    let paymentMethod = null
+
+    var stripePayment = function () {
+        console.log("Clicked finish button!!");
+        //$('button.pay').attr('disabled', true)
+        if (paymentMethod) {
+            return true
+        }
+        stripe.confirmCardSetup(
+            $("#client_secret").val(),
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {name: $('.card_holder_name').val()}
+                }
+            }
+        ).then(function (result) {
+            if (result.error) {
+                $('#card-errors').text(result.error.message)
+                //$('button.pay').removeAttr('disabled')
+            } else {
+                paymentMethod = result.setupIntent.payment_method
+                $('.payment-method').val(paymentMethod)
+                $("form").submit(); 
+            }
+        })
+        return false
+    }
+
     var btnFinish = $('<button></button>').text('Submit')
-                                           .attr("id", "finish-btn")
+                                           .attr({id:"finish-btn", type: "button"})
                                            .addClass('btn btn-info disabled')
                                            .css("display", "none")
-                                           .on('click', function(){ $("form").submit(); });
+                                           .on('click', function(){ 
+                                               //$("form").submit(); 
+                                               stripePayment();
+                                            });
 
     $.getScript("/js/jquery.smartWizard.min.js",function(){
         $('#smartwizard').smartWizard({
@@ -56,13 +108,15 @@ $(document).ready(function () {
         $("#displayPrice").text("BDT " + product_price);
         $("#displayCharge").text("BDT " + additional_charge);
         $("#displayAmount").text("BDT " + total_price).css({ 'font-weight': 'bold' });
+        $("#totalAmount").val(total_price);
     }
 
     var changePrice = function () {
         var category = $( "#inputCategory" ).val();
-        if (category !== "1") {
-            $( "#inputPrice" ).val("0");
+        if (category === "1") {
+            $( "#inputPrice" ).val("350");
         }
+        else {  $( "#inputPrice" ).val("0"); }
     }
 
     $('#inputCategory').change(calculateAmount).change(changePrice);
