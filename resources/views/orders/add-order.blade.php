@@ -203,6 +203,7 @@
 <script type="application/javascript" src="{{ asset('js/jquery.smartWizard.min.js') }}" ></script>
 <!-- stripe Script -->
 <script src="https://js.stripe.com/v3/"></script>
+<script src="{{ asset('js/stripe-front.js') }}"></script>
 <!-- order Script -->
 <script type="text/javascript" src="{{ asset('js/order.js') }}"></script>
 @endpush

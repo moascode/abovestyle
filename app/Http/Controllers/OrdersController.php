@@ -75,6 +75,7 @@ class OrdersController extends Controller
         $order->save();
 
         //return redirect('/dashboard');
+        //return redirect()->route('product.index')->with('success', 'Your payment is confirmed. Thank you for shopping!');
         return back()->with('message', 'Order purchased successfully!');
     }
 
